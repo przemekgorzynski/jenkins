@@ -1,9 +1,3 @@
-//   post {
-//     always {
-//       sh 'docker logout'
-//     }
-//   }
-
 pipeline {
     environment {
         registry = "pgorzynski/gorillabay"
@@ -37,10 +31,11 @@ pipeline {
                 }
             }
         }
-        // stage('Cleaning up') {
-        //     steps{
-        //         sh "docker rmi $registry:$BUILD_NUMBER"
-        //     }
-        // }
+        stage('Clean up image') {
+            steps{
+                sh "docker rmi $registry:$BUILD_NUMBER"
+                sh 'docker images'
+            }
+        }
     }
 }
