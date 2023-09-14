@@ -12,7 +12,7 @@ pipeline {
     stage('Docker Install') {
       steps{
         sh 'curl -fsSL https://get.docker.com -o /tmp/get-docker.sh'
-        sh 'sudo sh /tmp/get-docker.sh'
+        sh 'sh /tmp/get-docker.sh'
         }
     }
     stage('Docker Build') {
