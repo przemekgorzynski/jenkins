@@ -20,6 +20,8 @@ pipeline {
         stage('Building our image') {
             steps{
                 sh 'cd webpage'
+                sh 'pwd'
+                sf 'ls -la'
                 script {
                     dockerImage = docker.build registry + ":$BUILD_NUMBER"
                 }
