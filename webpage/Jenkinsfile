@@ -19,10 +19,10 @@ pipeline {
         }
         stage('Building our image') {
             steps{
-                sh 'cd /var/jenkins_home/workspace/webpage_docker_build_push/webpage'
-                sh 'ls -la'
-                script {
-                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                dir('webpage'){
+                    script {
+                        dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                    }
                 }
             }
         }
