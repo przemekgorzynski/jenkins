@@ -12,12 +12,12 @@ pipeline {
     }
     agent any
     stages {
-        stage('Cloning our Git') {
+        stage('Clone Git') {
             steps {
                 git 'https://github.com/przemekgorzynski/jenkins.git'
             }
         }
-        stage('Building our image') {
+        stage('Build docker image') {
             steps{
                 dir('webpage'){
                     script {
@@ -27,16 +27,16 @@ pipeline {
                 sh 'docker images'
             }
         }
-        // stage('Deploy our image') {
-        //     steps{
-        //         script {
-        //             docker.withRegistry( '', registryCredential ) 
-        //             {
-        //             dockerImage.push()
-        //             }
-        //         }
-        //     }
-        // }
+        stage('Push image') {
+            steps{
+                script {
+                    docker.withRegistry( '', registryCredential ) 
+                    {
+                    dockerImage.push()
+                    }
+                }
+            }
+        }
         // stage('Cleaning up') {
         //     steps{
         //         sh "docker rmi $registry:$BUILD_NUMBER"
