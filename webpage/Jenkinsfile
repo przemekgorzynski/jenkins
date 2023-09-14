@@ -1,6 +1,6 @@
 pipeline {
     environment {
-        registry = "pgorzynski/gorillabay"
+        registry = "pgorzynski/gorillabay-webpage"
         registryCredential = 'DockerHub'
         dockerImage = ''
     }
