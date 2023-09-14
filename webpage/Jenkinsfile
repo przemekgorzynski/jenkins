@@ -9,15 +9,15 @@ pipeline {
     //     git 'https://github.com/przemekgorzynski/jenkins.git'
     //   }
     // }
-    stage('Docker Install') {
-      steps{
-        sh 'curl -fsSL https://get.docker.com -o /tmp/get-docker.sh'
-        sh 'sh /tmp/get-docker.sh'
-        }
-    }
+    // stage('Docker Install') {
+    //   steps{
+    //     sh 'curl -fsSL https://get.docker.com -o /tmp/get-docker.sh'
+    //     sh 'sh /tmp/get-docker.sh'
+    //     }
+    // }
     stage('Docker Build') {
       steps {
-        sh 'sudo docker build -t pgorzynski/gorillabay:latest .'
+        sh '/usr/bin/ocker build -t pgorzynski/gorillabay:latest .'
       }
     }
   }
