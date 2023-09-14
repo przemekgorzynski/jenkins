@@ -9,6 +9,11 @@ pipeline {
     //     git 'https://github.com/przemekgorzynski/jenkins.git'
     //   }
     // }
+    stage('Docker Install') {
+      steps{
+        sh ' curl -fsSL https://get.docker.com -o get-docker.sh | sh'
+        }
+    }
     stage('Docker Build') {
       steps {
         sh 'docker build -t pgorzynski/gorillabay:latest .'
