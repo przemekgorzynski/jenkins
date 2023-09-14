@@ -4,9 +4,14 @@ pipeline {
     DOCKERHUB_CREDENTIALS = credentials('DockerHub')
   }
   stages {
-    stage('Git Checkout') {
+    // stage('Git Checkout') {
+    //   steps {
+    //     git 'https://github.com/przemekgorzynski/jenkins.git'
+    //   }
+    // }
+    stage('Docker Build') {
       steps {
-        git 'https://github.com/przemekgorzynski/jenkins.git'
+        sh 'docker build -t pgorzynski/gorillabay:latest .'
       }
     }
   }
