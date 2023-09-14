@@ -1,0 +1,18 @@
+pipeline {
+  agent any
+  environment {
+    DOCKERHUB_CREDENTIALS = credentials('DockerHub')
+  }
+  stages {
+    stage('Git Checkout') {
+      steps {
+        git 'https://github.com/przemekgorzynski/jenkins.git'
+      }
+    }
+  }
+//   post {
+//     always {
+//       sh 'docker logout'
+//     }
+//   }
+}
