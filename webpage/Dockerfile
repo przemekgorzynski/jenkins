@@ -1,2 +1,3 @@
-FROM arm64v8/nginx
-COPY . /usr/share/nginx/html
+FROM arm64v8/busybox
+RUN "echo Bilding"
+RUN echo "Hello World!!"
