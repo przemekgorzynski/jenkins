@@ -6,11 +6,11 @@ pipeline {
     }
     agent any
     stages {
-        stage('Clone Git') {
-            steps {
-                git 'https://github.com/przemekgorzynski/jenkins.git'
-            }
-        }
+        // stage('Clone Git') {
+        //     steps {
+        //         git 'https://github.com/przemekgorzynski/jenkins.git'
+        //     }
+        // }
         stage('Build docker image') {
             steps{
                 dir('webpage'){
